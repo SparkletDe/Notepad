@@ -10,6 +10,7 @@ fun main() {
         println("1 add task")
         println("2 delete task")
         println("3 list task")
+        println("4 find task by importance")
         var answer = readln()
 
         when (answer) {
@@ -20,9 +21,20 @@ fun main() {
                     println(task)
                 }
             }
+
+            "4" -> {
+             var list =  notepad.findTask(getImportanceTask())
+                for (task in list) {
+                    println("${task.nameTask} ${task.importance} ${task.infoTask}")
+                }
+
+            }
+
+
             else -> {
                 System.exit(0)
             }
+
         }
     }
 
@@ -34,7 +46,7 @@ fun main() {
         println("enter info task")
         var infoTask= readln()
 
-        println("enter importans")
+        println("enter importance")
         var importans = readln().toInt()
 
         return Task(name,infoTask,importans)
@@ -44,4 +56,10 @@ fun main() {
     fun getNameTask(): String{
         println("enter name to delete task")
         return readln()
+    }
+
+    fun getImportanceTask():Int{
+      println("enter importance of Task")
+     return readln().toInt()
+
     }

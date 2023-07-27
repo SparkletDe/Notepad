@@ -20,5 +20,15 @@ class Notepad_view {
         return list;
     }
 
+    fun findTask(importance:Int):List<Task>{
+        var list =  ArrayList<Task>()
+        for (task in arrayList) {
+            if (task.importance == importance){
+                list.add(task);
+            }
+        }
+        return list;
+    }
+
 
 }
